@@ -13,12 +13,11 @@ import java.time.LocalDateTime;
 public class Login_Table {
     @Id
     @Column(nullable = false)
-    String user_email_id;
+    private String user_email_id;
     @Column(nullable = false)
-    String user_password;
+    private String user_password;
     @Column(nullable = false)
-    LocalDateTime login_time;
+    private LocalDateTime login_time;
     @Column(nullable = false)
-    LocalDateTime logout_time;
-    //
+    private LocalDateTime logout_time;
 }
