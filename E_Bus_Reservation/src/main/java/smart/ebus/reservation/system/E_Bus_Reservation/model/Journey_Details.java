@@ -12,6 +12,7 @@ import java.util.List;
 @Data
 public class Journey_Details {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String PNR_number;
     @JoinColumn(name = "PNR_number")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
