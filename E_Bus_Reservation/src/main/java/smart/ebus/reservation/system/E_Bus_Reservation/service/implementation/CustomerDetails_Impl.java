@@ -12,9 +12,6 @@ import smart.ebus.reservation.system.E_Bus_Reservation.service.Customer_Details_
 public class CustomerDetails_Impl implements Customer_Details_Service {
 
     @Autowired
-    public Login_Table_Repository login_table_repository;
-
-    @Autowired
     public Customer_Details_Table_Repository customer_details_table_repository;
 
     @Override

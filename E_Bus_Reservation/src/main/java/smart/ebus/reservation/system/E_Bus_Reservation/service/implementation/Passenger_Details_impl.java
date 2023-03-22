@@ -17,4 +17,9 @@ public class Passenger_Details_impl implements Passenger_Details_Service {
     public Passenger_Journey_Details get_passenger_journey_details(Passenger_Journey_Details journey_details) {
         return passenger_details_repository.save(journey_details);
     }
+
+    @Override
+    public Passenger_Journey_Details find_buses(Passenger_Journey_Details journey_details) {
+        return null;
+    }
 }
