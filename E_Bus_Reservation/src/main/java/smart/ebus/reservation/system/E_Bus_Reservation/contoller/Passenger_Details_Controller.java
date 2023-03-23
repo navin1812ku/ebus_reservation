@@ -21,8 +21,8 @@ public class Passenger_Details_Controller {
 
 
     @PostMapping("/passenger_details")
-    public ResponseEntity<Journey_Details> passenger_details(@RequestBody Booking_page booking_page)
+    public ResponseEntity<Passenger_Journey_Details> passenger_details(@RequestBody Passenger_Journey_Details passenger_journey_details)
     {
-        return new ResponseEntity<Journey_Details>(passenger_details_service.find_buses(booking_page), HttpStatus.CREATED);
+        return new ResponseEntity<Passenger_Journey_Details>(passenger_details_service.passengers_details(passenger_journey_details), HttpStatus.CREATED);
     }
 }

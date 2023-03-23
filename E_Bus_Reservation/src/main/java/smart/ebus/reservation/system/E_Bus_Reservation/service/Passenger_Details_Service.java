@@ -6,5 +6,5 @@ import smart.ebus.reservation.system.E_Bus_Reservation.model.Passenger_Journey_D
 
 public interface Passenger_Details_Service {
 
-    Journey_Details find_buses(Booking_page booking_page);
+    Passenger_Journey_Details passengers_details(Passenger_Journey_Details passenger_journey_details);
 }
