@@ -9,6 +9,4 @@ import java.time.LocalDateTime;
 public class Login_Details {
     public String user_email_id;
     public String user_password;
-    public LocalDateTime login_time;
-    public LocalDateTime logout_time;
 }
