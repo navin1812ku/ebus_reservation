@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import java.util.Date;
 import java.util.Timer;
 
+
 public class Sri_Krishna_Travels {
     @Column(nullable = false)
     public Date travel_date;
