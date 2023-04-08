@@ -1,12 +1,12 @@
 package smart.ebus.reservation.system.E_Bus_Reservation.buses;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
-import java.util.Timer;
 
 @Entity
 @Data

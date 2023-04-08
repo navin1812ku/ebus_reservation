@@ -14,9 +14,9 @@ public class Journey_Details {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String PNR_number;
-    @JoinColumn(name = "PNR_number")
+    /*@JoinColumn(name = "PNR_number")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Passenger_Details> passenger_details;
+    private List<Passenger_Details> passenger_details;*/
     @Column(nullable = false)
     private Long phone_number;
     @Column(nullable = false)
@@ -28,7 +28,7 @@ public class Journey_Details {
     @Column(nullable = false)
     private String bus_name;
     @Column(nullable = false)
-    private Float total_amount;
+    private Double total_amount;
     @Column(nullable = false)
     private Boolean offer_applied;
     @Column(nullable = true)
