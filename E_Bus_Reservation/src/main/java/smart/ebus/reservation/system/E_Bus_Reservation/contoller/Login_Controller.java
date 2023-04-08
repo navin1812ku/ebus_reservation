@@ -23,7 +23,7 @@ public class Login_Controller {
         return new ResponseEntity<Login_Table>(login_service.user_login(login_details), HttpStatus.OK);
     }
 
-    @PostMapping("/login/forget_password/")
+    @PutMapping("/login/forget_password/")
     public ResponseEntity<Login_Table> change_password(@RequestBody Forget_Password_Details forget_password_details)
     {
         return new ResponseEntity<Login_Table>(login_service.change_password(forget_password_details),HttpStatus.CONTINUE);

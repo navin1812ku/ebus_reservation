@@ -16,8 +16,8 @@ public class Login_Table {
     private String user_email_id;
     @Column(nullable = false)
     private String user_password;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private LocalDateTime login_time;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private LocalDateTime logout_time;
 }

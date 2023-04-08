@@ -3,7 +3,6 @@ package smart.ebus.reservation.system.E_Bus_Reservation.model;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
 
 @Data
 public class Login_Details {

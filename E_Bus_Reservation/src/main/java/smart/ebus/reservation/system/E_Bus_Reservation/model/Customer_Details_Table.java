@@ -1,8 +1,10 @@
 package smart.ebus.reservation.system.E_Bus_Reservation.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,13 +22,14 @@ public class Customer_Details_Table {
     @Column(nullable = false)
     private String gender;
     @Column(nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.ANY, pattern = "dd-MM-yyyy")
     private Date Date_of_birth;
     @Column(nullable = false)
     private String Place;
     @Column(nullable = false)
     private String Aadhar_number;
     @Column(nullable = false)
-    private Long Phone_number;
+    private BigInteger Phone_number;
     @ElementCollection
     private Map<String,String> Security_Question1=new HashMap<String,String>();
     @ElementCollection
