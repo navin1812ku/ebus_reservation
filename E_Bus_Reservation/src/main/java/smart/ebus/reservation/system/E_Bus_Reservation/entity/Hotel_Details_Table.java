@@ -1,4 +1,4 @@
-package smart.ebus.reservation.system.E_Bus_Reservation.model;
+package smart.ebus.reservation.system.E_Bus_Reservation.entity;
 
 
 import lombok.Data;
@@ -12,8 +12,6 @@ import javax.persistence.Id;
 public class Hotel_Details_Table {
     @Id
     private String PNR_number;
-    @Column(nullable = false)
-    private Boolean AC_type;
     @Column(nullable = false)
     private Integer number_of_seats;
 }

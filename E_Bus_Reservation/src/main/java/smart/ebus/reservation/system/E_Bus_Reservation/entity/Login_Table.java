@@ -1,4 +1,4 @@
-package smart.ebus.reservation.system.E_Bus_Reservation.model;
+package smart.ebus.reservation.system.E_Bus_Reservation.entity;
 
 import lombok.Data;
 import javax.persistence.Column;

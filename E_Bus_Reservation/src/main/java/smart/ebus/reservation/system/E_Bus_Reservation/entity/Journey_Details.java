@@ -1,4 +1,4 @@
-package smart.ebus.reservation.system.E_Bus_Reservation.model;
+package smart.ebus.reservation.system.E_Bus_Reservation.entity;
 
 import lombok.Data;
 
@@ -7,16 +7,15 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
-
 @Entity
 @Data
 public class Journey_Details {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String PNR_number;
-    /*@JoinColumn(name = "PNR_number")
+    @JoinColumn(name = "PNR_number")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Passenger_Details> passenger_details;*/
+    private List<Passenger_Details> passenger_details;
     @Column(nullable = false)
     private Long phone_number;
     @Column(nullable = false)

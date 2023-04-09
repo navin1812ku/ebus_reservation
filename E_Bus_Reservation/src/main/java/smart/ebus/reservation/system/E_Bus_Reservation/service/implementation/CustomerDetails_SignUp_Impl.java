@@ -1,12 +1,8 @@
 package smart.ebus.reservation.system.E_Bus_Reservation.service.implementation;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import smart.ebus.reservation.system.E_Bus_Reservation.exception.User_Not_Found_Exception;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.Customer_Details_Table;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.Login_Details;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.Login_Table;
+import smart.ebus.reservation.system.E_Bus_Reservation.entity.Customer_Details_Table;
+import smart.ebus.reservation.system.E_Bus_Reservation.entity.Login_Table;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.Sign_Up_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Customer_Details_Table_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Login_Table_Repository;
@@ -25,11 +21,12 @@ public class CustomerDetails_SignUp_Impl implements Customer_Details_Service {
     Login_Table_Repository login_table_repository;
 
     @Override
-    public Customer_Details_Table customer_details(Sign_Up_Request sign_up_request) {
+    public String customer_details(Sign_Up_Request sign_up_request) {
         //Login_Table login_table=login_table_repository.findById(sign_up_request.getUser_email_id()).isEmpty();
         if(login_table_repository.findById(sign_up_request.getUser_email_id()).isPresent())
         {
             System.out.println("UserAlreadyExists");
+            return "Email Id Already Exists Try With Different One";
         }
         else
         {
@@ -58,7 +55,7 @@ public class CustomerDetails_SignUp_Impl implements Customer_Details_Service {
             customer_details_table.setSecurity_Question2(security_question2);
 
             customer_details_table_repository.save(customer_details_table);
+            return "User Details Registered In DB Successsfully,Try To Login Now";
         }
-        return null;
     }
 }

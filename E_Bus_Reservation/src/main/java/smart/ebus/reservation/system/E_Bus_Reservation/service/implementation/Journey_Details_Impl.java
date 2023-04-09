@@ -3,9 +3,9 @@ package smart.ebus.reservation.system.E_Bus_Reservation.service.implementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.Getting_Journey_Details;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.Hotel_Details_Table;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.Journey_Details;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.Passenger_Details;
+import smart.ebus.reservation.system.E_Bus_Reservation.entity.Hotel_Details_Table;
+import smart.ebus.reservation.system.E_Bus_Reservation.entity.Journey_Details;
+import smart.ebus.reservation.system.E_Bus_Reservation.entity.Passenger_Details;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Hotel_Details_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Journey_Details_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Passenger_Details_Repository;
@@ -37,7 +37,6 @@ public class Journey_Details_Impl implements Journey_Details_Service {
         passenger_details_repository.save(passenger_details);
 
         Hotel_Details_Table hotel_details_table=new Hotel_Details_Table();
-        hotel_details_table.setAC_type(getting_journey_details.getAC_type());
         hotel_details_table.setNumber_of_seats(hotel_details_table.getNumber_of_seats());
         hotel_details_repository.save(hotel_details_table);
 

@@ -1,4 +1,4 @@
-package smart.ebus.reservation.system.E_Bus_Reservation.model;
+package smart.ebus.reservation.system.E_Bus_Reservation.entity;
 
 import lombok.Data;
 
@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Data
 public class Passenger_Details {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String PNR_number;
     @Column(nullable = false)
     private String passenger_name;

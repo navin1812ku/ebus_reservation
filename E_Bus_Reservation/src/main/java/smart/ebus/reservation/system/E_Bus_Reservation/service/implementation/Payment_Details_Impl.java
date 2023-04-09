@@ -2,7 +2,7 @@ package smart.ebus.reservation.system.E_Bus_Reservation.service.implementation;
 
 
 import org.springframework.stereotype.Service;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.Journey_Details;
+import smart.ebus.reservation.system.E_Bus_Reservation.entity.Journey_Details;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Payment_Details_Service;
 
 @Service
