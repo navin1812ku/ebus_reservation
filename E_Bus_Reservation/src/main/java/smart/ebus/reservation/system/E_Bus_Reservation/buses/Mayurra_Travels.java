@@ -3,9 +3,11 @@ package smart.ebus.reservation.system.E_Bus_Reservation.buses;
 import lombok.Data;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
+import java.util.Map;
 import java.util.Timer;
 
 @Entity
@@ -29,4 +31,6 @@ public class Mayurra_Travels {
     public String seat_available;
     @Column(nullable = false)
     public Double bus_fare;
+    @ElementCollection
+    private Map<String,Integer> hotel_booked_seat;
 }

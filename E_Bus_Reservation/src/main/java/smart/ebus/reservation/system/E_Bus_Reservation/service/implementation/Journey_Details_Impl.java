@@ -11,7 +11,6 @@ import smart.ebus.reservation.system.E_Bus_Reservation.repository.Journey_Detail
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Passenger_Details_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Journey_Details_Service;
 
-
 @Service
 public class Journey_Details_Impl implements Journey_Details_Service {
 
