@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class Hotel_Details_Table {
+public class Hotel_Details_Entity {
     @Id
     private String PNR_number;
     @Column(nullable = false)

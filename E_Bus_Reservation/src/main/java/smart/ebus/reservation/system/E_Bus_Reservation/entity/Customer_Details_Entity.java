@@ -12,7 +12,7 @@ import java.util.Map;
 @Entity
 @Table(name = "customer_details_table")
 @Data
-public class Customer_Details_Table {
+public class Customer_Details_Entity {
     @Id
     private String user_email_id;
     @Column(nullable = false)

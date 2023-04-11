@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "login_table")
 @Data
-public class Login_Table {
+public class Login_Table_Entity {
     @Id
     @Column(nullable = false)
     private String user_email_id;

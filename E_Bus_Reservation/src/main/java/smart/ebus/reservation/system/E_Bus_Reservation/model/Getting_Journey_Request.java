@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class Getting_Journey_Details {
+public class Getting_Journey_Request {
     private String name;
     private Integer age;
     private String pick_up;

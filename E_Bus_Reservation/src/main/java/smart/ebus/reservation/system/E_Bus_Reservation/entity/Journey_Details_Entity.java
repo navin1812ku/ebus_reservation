@@ -9,13 +9,13 @@ import java.util.List;
 
 @Entity
 @Data
-public class Journey_Details {
+public class Journey_Details_Entity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String PNR_number;
     @JoinColumn(name = "PNR_number")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Passenger_Details> passenger_details;
+    private List<Passenger_Details_Entity> passenger_detailEntities;
     @Column(nullable = false)
     private Long phone_number;
     @Column(nullable = false)

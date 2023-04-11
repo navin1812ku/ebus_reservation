@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class Passenger_Details {
+public class Passenger_Details_Entity {
     @Id
     private String PNR_number;
     @Column(nullable = false)

@@ -1,8 +1,8 @@
 package smart.ebus.reservation.system.E_Bus_Reservation.service.implementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import smart.ebus.reservation.system.E_Bus_Reservation.entity.Customer_Details_Table;
-import smart.ebus.reservation.system.E_Bus_Reservation.entity.Login_Table;
+import smart.ebus.reservation.system.E_Bus_Reservation.entity.Customer_Details_Entity;
+import smart.ebus.reservation.system.E_Bus_Reservation.entity.Login_Table_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.Sign_Up_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Customer_Details_Table_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Login_Table_Repository;
@@ -30,31 +30,31 @@ public class CustomerDetails_SignUp_Impl implements Customer_Details_Service {
         }
         else
         {
-            Login_Table login_table1 = new Login_Table();
-            login_table1.setUser_email_id(sign_up_request.getUser_email_id());
-            login_table1.setUser_password(sign_up_request.getPassword());
+            Login_Table_Entity login_tableEntity1 = new Login_Table_Entity();
+            login_tableEntity1.setUser_email_id(sign_up_request.getUser_email_id());
+            login_tableEntity1.setUser_password(sign_up_request.getPassword());
 
-            login_table_repository.save(login_table1);
+            login_table_repository.save(login_tableEntity1);
 
-            Customer_Details_Table customer_details_table=new Customer_Details_Table();
-            customer_details_table.setUser_email_id(sign_up_request.getUser_email_id());
-            customer_details_table.setFirst_name(sign_up_request.getFirst_name());
-            customer_details_table.setLast_name(sign_up_request.getLast_name());
-            customer_details_table.setGender(sign_up_request.getGender());
-            customer_details_table.setDate_of_birth(sign_up_request.getDate_of_birth());
-            customer_details_table.setPlace(sign_up_request.getPlace());
-            customer_details_table.setAadhar_number(sign_up_request.getAadhar_number());
-            customer_details_table.setPhone_number(sign_up_request.getPhone_number());
+            Customer_Details_Entity customer_details_entity =new Customer_Details_Entity();
+            customer_details_entity.setUser_email_id(sign_up_request.getUser_email_id());
+            customer_details_entity.setFirst_name(sign_up_request.getFirst_name());
+            customer_details_entity.setLast_name(sign_up_request.getLast_name());
+            customer_details_entity.setGender(sign_up_request.getGender());
+            customer_details_entity.setDate_of_birth(sign_up_request.getDate_of_birth());
+            customer_details_entity.setPlace(sign_up_request.getPlace());
+            customer_details_entity.setAadhar_number(sign_up_request.getAadhar_number());
+            customer_details_entity.setPhone_number(sign_up_request.getPhone_number());
 
             Map<String,String> security_question1=new HashMap<>();
             security_question1.put(sign_up_request.getSecurity_Question1(), sign_up_request.getSecurity_Answer1());
             Map<String,String> security_question2=new HashMap<>();
             security_question2.put(sign_up_request.getSecurity_Question2(), sign_up_request.getSecurity_Answer2());
 
-            customer_details_table.setSecurity_Question1(security_question1);
-            customer_details_table.setSecurity_Question2(security_question2);
+            customer_details_entity.setSecurity_Question1(security_question1);
+            customer_details_entity.setSecurity_Question2(security_question2);
 
-            customer_details_table_repository.save(customer_details_table);
+            customer_details_table_repository.save(customer_details_entity);
             return "User Details Registered In DB Successsfully,Try To Login Now";
         }
     }
