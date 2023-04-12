@@ -3,7 +3,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Customer_Details_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Login_Table_Entity;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.Sign_Up_Request;
+import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Sign_Up_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Customer_Details_Table_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Login_Table_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Customer_Details_Service;

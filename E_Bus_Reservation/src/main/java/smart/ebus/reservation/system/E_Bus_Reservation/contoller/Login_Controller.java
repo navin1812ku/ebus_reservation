@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.Forget_Password_Request;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.Login_Request;
+import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Forget_Password_Request;
+import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Login_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Login_Service;
 
 @RestController

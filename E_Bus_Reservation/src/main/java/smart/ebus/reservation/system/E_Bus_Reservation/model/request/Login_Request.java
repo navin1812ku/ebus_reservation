@@ -1,4 +1,4 @@
-package smart.ebus.reservation.system.E_Bus_Reservation.model;
+package smart.ebus.reservation.system.E_Bus_Reservation.model.request;
 
 
 import lombok.Data;

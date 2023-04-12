@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.Getting_Journey_Request;
+import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Getting_Journey_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Journey_Details_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Journey_Details_Service;
 

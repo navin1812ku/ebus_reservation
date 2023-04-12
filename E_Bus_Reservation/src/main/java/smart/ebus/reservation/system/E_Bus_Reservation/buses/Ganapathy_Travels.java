@@ -1,5 +1,6 @@
 package smart.ebus.reservation.system.E_Bus_Reservation.buses;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 
@@ -16,7 +18,8 @@ public class Ganapathy_Travels {
     @Id
     public String bus_id;
     @Column(nullable = false)
-    public Date travel_date;
+    @JsonFormat(shape = JsonFormat.Shape.ANY, pattern = "yyyy-MM-dd")
+    public Date traveldate;
     @Column(nullable = false)
     public String bus_timing;
     @Column(nullable = false)
@@ -27,10 +30,14 @@ public class Ganapathy_Travels {
     public String destination_stop;
     @Column(nullable = false)
     public String amenities;
-    @Column(nullable = false)
-    public String seat_available;
+    @ElementCollection
+    public List<String> seat_available;
     @Column(nullable = false)
     public Double bus_fare;
+    @Column(nullable = false)
+    public String start_time;
+    @Column(nullable = false)
+    public String end_time;
     @ElementCollection
     private Map<String,Integer> hotel_booked_seat;
 }

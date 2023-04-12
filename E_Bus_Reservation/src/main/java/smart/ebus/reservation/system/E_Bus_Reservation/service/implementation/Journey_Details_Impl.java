@@ -2,7 +2,7 @@ package smart.ebus.reservation.system.E_Bus_Reservation.service.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.Getting_Journey_Request;
+import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Getting_Journey_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Hotel_Details_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Journey_Details_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Passenger_Details_Entity;
