@@ -48,8 +48,8 @@ public class Check_Bus_Availability_Impl implements Check_Bus_Availability_Servi
     public List<Available_Bus_Response> check_bus_availability(Available_Bus_Request available_bus_request) {
         List<Available_Bus_Response> available_bus_responses_list=new ArrayList<>();
         Air_India_Travels air_india_travels=air_india_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTravel_date());
-       // available_bus_responses_list.add(create_object_of_available_buses(air_india_travels.getBus_id(),air_india_travels.getSeat_available(),
-       //         air_india_travels.getAmenities(), air_india_travels.getStart_time(),air_india_travels.getEnd_time(),air_india_travels.getBus_fare()));
+        available_bus_responses_list.add(create_object_of_available_buses(air_india_travels.getBus_id(),air_india_travels.getSeat_available(),
+                air_india_travels.getAmenities(), air_india_travels.getStart_time(),air_india_travels.getEnd_time(),air_india_travels.getBus_fare()));
 
         City_Travels city_travels=city_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTravel_date());
         available_bus_responses_list.add(create_object_of_available_buses(city_travels.getBus_id(),city_travels.getSeat_available(),
@@ -67,11 +67,11 @@ public class Check_Bus_Availability_Impl implements Check_Bus_Availability_Servi
         available_bus_responses_list.add(create_object_of_available_buses(krish_travels.getBus_id(),krish_travels.getSeat_available(),
                 krish_travels.getAmenities(),krish_travels.getStart_time(),krish_travels.getEnd_time(),krish_travels.getBus_fare()));
 
-        Mayurra_Travels mayurra_travels=mayurra_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTravel_date();
+        Mayurra_Travels mayurra_travels=mayurra_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTravel_date());
         available_bus_responses_list.add(create_object_of_available_buses(mayurra_travels.getBus_id(),mayurra_travels.getSeat_available(),
                 mayurra_travels.getAmenities(),mayurra_travels.getStart_time(),mayurra_travels.getEnd_time(),mayurra_travels.getBus_fare()));
 
-        National_Travels national_travels=national_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTravel_date();
+        National_Travels national_travels=national_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTravel_date());
         available_bus_responses_list.add(create_object_of_available_buses(national_travels.getBus_id(),national_travels.getSeat_available(),
                 national_travels.getAmenities(),national_travels.getStart_time(),national_travels.getEnd_time(),national_travels.getBus_fare()));
 
