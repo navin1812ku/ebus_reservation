@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class National_Travels {
     public String bus_id;
     @Column(nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.ANY, pattern = "yyyy-MM-dd")
-    public Date traveldate;
+    public LocalDate traveldate;
     @Column(nullable = false)
     public String bus_timing;
     @Column(nullable = false)

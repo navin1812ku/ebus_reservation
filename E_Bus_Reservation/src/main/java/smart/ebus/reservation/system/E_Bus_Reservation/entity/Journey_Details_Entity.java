@@ -1,8 +1,10 @@
 package smart.ebus.reservation.system.E_Bus_Reservation.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -11,9 +13,10 @@ import java.util.List;
 @Data
 public class Journey_Details_Entity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String user_email_id;
+    @Column(nullable = false)
     private String PNR_number;
-    @JoinColumn(name = "PNR_number")
+    @JoinColumn(name = "user_email_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Passenger_Details_Entity> passenger_detailEntities;
     @Column(nullable = false)
@@ -23,11 +26,16 @@ public class Journey_Details_Entity {
     @Column(nullable = false)
     private String destination;
     @Column(nullable = false)
-    private Date travel_date;
+    @JsonFormat(shape = JsonFormat.Shape.ANY, pattern = "yyyy-MM-dd")
+    private LocalDate travel_date;
     @Column(nullable = false)
     private String bus_name;
+    @Column(nullable = true)
+    private Integer number_of_seats;
     @Column(nullable = false)
     private Double total_amount;
+    @Column(nullable = true)
+    private String payment_status;
     @Column(nullable = false)
     private Boolean offer_applied;
     @Column(nullable = true)

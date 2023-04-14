@@ -8,6 +8,8 @@ import javax.persistence.*;
 @Data
 public class Passenger_Details_Entity {
     @Id
+    private String user_email_id;
+    @Column(nullable = false)
     private String PNR_number;
     @Column(nullable = false)
     private String passenger_name;

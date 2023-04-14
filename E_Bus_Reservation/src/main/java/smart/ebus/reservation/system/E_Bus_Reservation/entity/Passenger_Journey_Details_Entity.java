@@ -11,7 +11,9 @@ import java.util.List;
 public class Passenger_Journey_Details_Entity {
     @Id
     private String user_email_id;
-    @JoinColumn(name = "PNR_number")
+    @JoinColumn(name = "user_email_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Journey_Details_Entity> journey_detailEntities;
 }
+
+
