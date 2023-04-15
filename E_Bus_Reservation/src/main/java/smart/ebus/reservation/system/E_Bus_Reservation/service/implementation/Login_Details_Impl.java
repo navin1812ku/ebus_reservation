@@ -11,6 +11,7 @@ import smart.ebus.reservation.system.E_Bus_Reservation.repository.Customer_Detai
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Login_Table_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Login_Service;
 
+import java.util.Date;
 import java.util.Map;
 
 @Service
@@ -29,6 +30,9 @@ public class Login_Details_Impl implements Login_Service {
                         "account so create an account by clicking sign_up"));
         if(login_request.getUser_password().equals(login_tableEntity.getUser_password()))
         {
+            Date date = new Date();
+            login_tableEntity.setLogin_time(date);
+            login_table_repository.save(login_tableEntity);
             System.out.println("User name and password matched login permitted");
             return "Login Successful";
         }
