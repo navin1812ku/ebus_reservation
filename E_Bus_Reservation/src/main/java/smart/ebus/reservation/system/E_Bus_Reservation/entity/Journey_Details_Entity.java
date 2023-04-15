@@ -30,6 +30,10 @@ public class Journey_Details_Entity {
     private LocalDate travel_date;
     @Column(nullable = false)
     private String bus_name;
+    @Column(nullable = false)
+    private String start_time;
+    @Column(nullable = false)
+    private String end_time;
     @Column(nullable = true)
     private Integer number_of_seats;
     @Column(nullable = false)
@@ -47,10 +51,12 @@ public class Journey_Details_Entity {
     @Column(nullable = true)
     private String refund_status;
     @Column(nullable = true)
-    private LocalDateTime cancellation_date;
+    private String cancellation_date;
+    @Column(nullable = false)
+    private String cancellation_time;
     @Column(nullable = true)
     private String reason_for_cancellation;
     @Column(nullable = true)
-    private Long refund_amount;
+    private Double refund_amount;
 
 }

@@ -26,6 +26,10 @@ public class Getting_Journey_Request {
     private String drop;
     @JsonProperty("bus_id")
     private String bus_id;
+    @JsonProperty("start_time")
+    private String start_time;
+    @JsonProperty("end_time")
+    private String end_time;
     @JsonProperty("travel_date")
     private LocalDate travel_date;
     @JsonProperty("number_of_seats")

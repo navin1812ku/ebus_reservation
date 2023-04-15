@@ -36,7 +36,7 @@ public class Payment_Details_Impl implements Payment_Details_Service {
                     Promo_Code_Entity promo_code_entity=promo_code_repository.findById(promo_code_request.getPromo_code().toUpperCase()).orElse(null);
                     Double total_amount;/*=journey_details_entity.getTotal_amount()*(promo_code_entity.getDiscount()/100);*/
 
-                    total_amount=journey_details_entity.getTotal_amount()-(journey_details_entity.getTotal_amount()*(promo_code_entity.getDiscount()/100));
+                    total_amount=(journey_details_entity.getTotal_amount()*promo_code_entity.getDiscount())/100;
                             /*((100-promo_code_entity.getDiscount())*journey_details_entity.getTotal_amount())/100;*/
 
                     journey_details_entity.setTotal_amount(total_amount);
