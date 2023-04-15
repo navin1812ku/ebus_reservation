@@ -41,4 +41,5 @@ public class Orange_Tour_Travels {
     public String end_time;
     @ElementCollection
     private Map<String,Integer> hotel_booked_seat;
+    //string => PNRnumber ,integer => number of seat
 }

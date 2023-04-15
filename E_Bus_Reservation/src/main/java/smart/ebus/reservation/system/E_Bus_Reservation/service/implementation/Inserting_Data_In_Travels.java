@@ -3,7 +3,9 @@ package smart.ebus.reservation.system.E_Bus_Reservation.service.implementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import smart.ebus.reservation.system.E_Bus_Reservation.buses.*;
+import smart.ebus.reservation.system.E_Bus_Reservation.enum_package.Response_Enum;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Adding_Data_To_Travels_Request;
+import smart.ebus.reservation.system.E_Bus_Reservation.model.response.Response;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.travels.*;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Adding_Data_To_Tables_Service;
 
@@ -42,7 +44,7 @@ public class Inserting_Data_In_Travels implements Adding_Data_To_Tables_Service 
 
 
     @Override
-    public String air_india_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
+    public Response air_india_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
         Air_India_Travels air_india_travels=new Air_India_Travels();
         air_india_travels.setBus_id(adding_data_to_travels_request.getBus_id());
         air_india_travels.setTraveldate(adding_data_to_travels_request.getTraveldate());
@@ -57,11 +59,14 @@ public class Inserting_Data_In_Travels implements Adding_Data_To_Tables_Service 
         air_india_travels.setEnd_time(adding_data_to_travels_request.getEnd_time());
         air_india_travels.setHotel_booked_seat(adding_data_to_travels_request.getHotel_booked_seat());
         air_india_travels_repository.save(air_india_travels);
-        return null;
+
+        Response response=new Response();
+        response.setResponse(Response_Enum.BUS_DETAILS_UPDATED_SUCCESSFUL);
+        return response;
     }
 
     @Override
-    public String sri_krishna_travels_travels(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
+    public Response sri_krishna_travels_travels(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
         City_Travels city_travels=new City_Travels();
         city_travels.setBus_id(adding_data_to_travels_request.getBus_id());
         city_travels.setTraveldate(adding_data_to_travels_request.getTraveldate());
@@ -76,11 +81,14 @@ public class Inserting_Data_In_Travels implements Adding_Data_To_Tables_Service 
         city_travels.setEnd_time(adding_data_to_travels_request.getEnd_time());
         city_travels.setHotel_booked_seat(adding_data_to_travels_request.getHotel_booked_seat());
         city_travels_repository.save(city_travels);
-        return null;
+
+        Response response=new Response();
+        response.setResponse(Response_Enum.BUS_DETAILS_UPDATED_SUCCESSFUL);
+        return response;
     }
 
     @Override
-    public String orange_tour_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
+    public Response orange_tour_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
         Orange_Tour_Travels orange_tour_travels=new Orange_Tour_Travels();
         orange_tour_travels.setBus_id(adding_data_to_travels_request.getBus_id());
         orange_tour_travels.setTraveldate(adding_data_to_travels_request.getTraveldate());
@@ -95,11 +103,14 @@ public class Inserting_Data_In_Travels implements Adding_Data_To_Tables_Service 
         orange_tour_travels.setEnd_time(adding_data_to_travels_request.getEnd_time());
         orange_tour_travels.setHotel_booked_seat(adding_data_to_travels_request.getHotel_booked_seat());
         orange_tour_travels_repository.save(orange_tour_travels);
-        return null;
+
+        Response response=new Response();
+        response.setResponse(Response_Enum.BUS_DETAILS_UPDATED_SUCCESSFUL);
+        return response;
     }
 
     @Override
-    public String no_1_air_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
+    public Response no_1_air_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
         No_1_Air_Travels no_1_air_travels=new No_1_Air_Travels();
         no_1_air_travels.setBus_id(adding_data_to_travels_request.getBus_id());
         no_1_air_travels.setTraveldate(adding_data_to_travels_request.getTraveldate());
@@ -114,11 +125,14 @@ public class Inserting_Data_In_Travels implements Adding_Data_To_Tables_Service 
         no_1_air_travels.setEnd_time(adding_data_to_travels_request.getEnd_time());
         no_1_air_travels.setHotel_booked_seat(adding_data_to_travels_request.getHotel_booked_seat());
         no_1_air_travels_repository.save(no_1_air_travels);
-        return null;
+
+        Response response=new Response();
+        response.setResponse(Response_Enum.BUS_DETAILS_UPDATED_SUCCESSFUL);
+        return response;
     }
 
     @Override
-    public String national_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
+    public Response national_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
         National_Travels national_travels=new National_Travels();
         national_travels.setBus_id(adding_data_to_travels_request.getBus_id());
         national_travels.setTraveldate(adding_data_to_travels_request.getTraveldate());
@@ -133,11 +147,14 @@ public class Inserting_Data_In_Travels implements Adding_Data_To_Tables_Service 
         national_travels.setEnd_time(adding_data_to_travels_request.getEnd_time());
         national_travels.setHotel_booked_seat(adding_data_to_travels_request.getHotel_booked_seat());
         national_travels_repository.save(national_travels);
-        return null;
+
+        Response response=new Response();
+        response.setResponse(Response_Enum.BUS_DETAILS_UPDATED_SUCCESSFUL);
+        return response;
     }
 
     @Override
-    public String mayurra_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
+    public Response mayurra_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
         Mayurra_Travels mayurra_travels=new Mayurra_Travels();
         mayurra_travels.setBus_id(adding_data_to_travels_request.getBus_id());
         mayurra_travels.setTraveldate(adding_data_to_travels_request.getTraveldate());
@@ -152,11 +169,14 @@ public class Inserting_Data_In_Travels implements Adding_Data_To_Tables_Service 
         mayurra_travels.setEnd_time(adding_data_to_travels_request.getEnd_time());
         mayurra_travels.setHotel_booked_seat(adding_data_to_travels_request.getHotel_booked_seat());
         mayurra_travels_repository.save(mayurra_travels);
-        return null;
+
+        Response response=new Response();
+        response.setResponse(Response_Enum.BUS_DETAILS_UPDATED_SUCCESSFUL);
+        return response;
     }
 
     @Override
-    public String krish_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
+    public Response krish_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
         Krish_Travels krish_travels=new Krish_Travels();
         krish_travels.setBus_id(adding_data_to_travels_request.getBus_id());
         krish_travels.setTraveldate(adding_data_to_travels_request.getTraveldate());
@@ -172,11 +192,14 @@ public class Inserting_Data_In_Travels implements Adding_Data_To_Tables_Service 
         krish_travels.setHotel_booked_seat(adding_data_to_travels_request.getHotel_booked_seat());
         krish_travels_repository.save(krish_travels);
 
-        return null;
+
+        Response response=new Response();
+        response.setResponse(Response_Enum.BUS_DETAILS_UPDATED_SUCCESSFUL);
+        return response;
     }
 
     @Override
-    public String ganapathy_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
+    public Response ganapathy_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
         Ganapathy_Travels ganapathy_travels=new Ganapathy_Travels();
         ganapathy_travels.setBus_id(adding_data_to_travels_request.getBus_id());
         ganapathy_travels.setTraveldate(adding_data_to_travels_request.getTraveldate());
@@ -192,11 +215,13 @@ public class Inserting_Data_In_Travels implements Adding_Data_To_Tables_Service 
         ganapathy_travels.setHotel_booked_seat(adding_data_to_travels_request.getHotel_booked_seat());
         ganapathy_travels_repository.save(ganapathy_travels);
 
-        return null;
+        Response response=new Response();
+        response.setResponse(Response_Enum.BUS_DETAILS_UPDATED_SUCCESSFUL);
+        return response;
     }
 
     @Override
-    public String essar_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
+    public Response essar_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
         Essar_Travels essar_travels=new Essar_Travels();
         essar_travels.setBus_id(adding_data_to_travels_request.getBus_id());
         essar_travels.setTraveldate(adding_data_to_travels_request.getTraveldate());
@@ -211,12 +236,15 @@ public class Inserting_Data_In_Travels implements Adding_Data_To_Tables_Service 
         essar_travels.setEnd_time(adding_data_to_travels_request.getEnd_time());
         essar_travels.setHotel_booked_seat(adding_data_to_travels_request.getHotel_booked_seat());
         essar_travels_repository.save(essar_travels);
-        return null;
+
+        Response response=new Response();
+        response.setResponse(Response_Enum.BUS_DETAILS_UPDATED_SUCCESSFUL);
+        return response;
     }
 
     @Override
-    public String city_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
-        City_Travels city_travels=new City_Travels();
+    public Response city_travels_details(Adding_Data_To_Travels_Request adding_data_to_travels_request) {
+        City_Travels city_travels = new City_Travels();
         city_travels.setBus_id(adding_data_to_travels_request.getBus_id());
         city_travels.setTraveldate(adding_data_to_travels_request.getTraveldate());
         city_travels.setBus_timing(adding_data_to_travels_request.getBus_timing());
@@ -230,7 +258,9 @@ public class Inserting_Data_In_Travels implements Adding_Data_To_Tables_Service 
         city_travels.setEnd_time(adding_data_to_travels_request.getEnd_time());
         city_travels.setHotel_booked_seat(adding_data_to_travels_request.getHotel_booked_seat());
         city_travels_repository.save(city_travels);
-        return null;
-    }
 
+        Response response = new Response();
+        response.setResponse(Response_Enum.BUS_DETAILS_UPDATED_SUCCESSFUL);
+        return response;
+    }
 }

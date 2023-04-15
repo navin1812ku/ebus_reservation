@@ -55,7 +55,7 @@ public class Check_Bus_Availability_Impl implements Check_Bus_Availability_Servi
         available_bus_responses_list.add(create_object_of_available_buses(city_travels.getBus_id(),city_travels.getSeat_available(),
                 city_travels.getAmenities(),city_travels.getStart_time(),city_travels.getEnd_time(),city_travels.getBus_fare()));
 
-       /* Essar_Travels essar_travels=essar_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
+        Essar_Travels essar_travels=essar_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
         available_bus_responses_list.add(create_object_of_available_buses(essar_travels.getBus_id(),essar_travels.getSeat_available(),
                 essar_travels.getAmenities(),essar_travels.getStart_time(),essar_travels.getEnd_time(),essar_travels.getBus_fare()));
 
@@ -86,7 +86,7 @@ public class Check_Bus_Availability_Impl implements Check_Bus_Availability_Servi
         Sri_Krishna_Travels sri_krishna_travels=sri_krishna_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
         available_bus_responses_list.add(create_object_of_available_buses(sri_krishna_travels.getBus_id(),sri_krishna_travels.getSeat_available(),
                 sri_krishna_travels.getAmenities(),sri_krishna_travels.getStart_time(),sri_krishna_travels.getEnd_time(),sri_krishna_travels.getBus_fare()));
-*/
+
         return available_bus_responses_list;
     }
 

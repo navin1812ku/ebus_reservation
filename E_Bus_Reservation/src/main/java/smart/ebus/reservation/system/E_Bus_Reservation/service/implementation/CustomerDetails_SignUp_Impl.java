@@ -3,7 +3,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Customer_Details_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Login_Table_Entity;
+import smart.ebus.reservation.system.E_Bus_Reservation.enum_package.Response_Enum;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Sign_Up_Request;
+import smart.ebus.reservation.system.E_Bus_Reservation.model.response.Response;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Customer_Details_Table_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Login_Table_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Customer_Details_Service;
@@ -21,12 +23,14 @@ public class CustomerDetails_SignUp_Impl implements Customer_Details_Service {
     Login_Table_Repository login_table_repository;
 
     @Override
-    public String customer_details(Sign_Up_Request sign_up_request) {
+    public Response customer_details(Sign_Up_Request sign_up_request) {
+        Response response=new Response();
         //Login_Table login_table=login_table_repository.findById(sign_up_request.getUser_email_id()).isEmpty();
         if(login_table_repository.findById(sign_up_request.getUser_email_id()).isPresent())
         {
             System.out.println("UserAlreadyExists");
-            return "Email Id Already Exists Try With Different One";
+            response.setResponse(Response_Enum.USER_ALREADY_EXISTS);
+            return response;
         }
         else
         {
@@ -55,7 +59,8 @@ public class CustomerDetails_SignUp_Impl implements Customer_Details_Service {
             customer_details_entity.setSecurity_Question2(security_question2);
 
             customer_details_table_repository.save(customer_details_entity);
-            return "User Details Registered In DB Successsfully,Try To Login Now";
+            response.setResponse(Response_Enum.SIGN_UP_SUCCESSFUL);
+            return response;
         }
     }
 }

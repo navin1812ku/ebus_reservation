@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Login_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Logout_Request;
+import smart.ebus.reservation.system.E_Bus_Reservation.model.response.Response;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Logout_service;
 
 @RestController
@@ -19,9 +20,9 @@ public class Logout_Controller {
     Logout_service logout_service;
 
     @PutMapping("process/")
-    public ResponseEntity<String> check_user(@RequestBody Logout_Request logout_request)
+    public ResponseEntity<Response> check_user(@RequestBody Logout_Request logout_request)
     {
-        return new ResponseEntity<String>(logout_service.user_logout(logout_request), HttpStatus.OK);
+        return new ResponseEntity<Response>(logout_service.user_logout(logout_request), HttpStatus.ACCEPTED);
     }
 
 }

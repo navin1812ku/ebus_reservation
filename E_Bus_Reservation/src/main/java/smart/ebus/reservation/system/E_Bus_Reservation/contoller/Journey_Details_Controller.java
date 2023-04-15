@@ -14,7 +14,7 @@ import smart.ebus.reservation.system.E_Bus_Reservation.repository.Passenger_Jour
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Passenger_Journey_Details_Service;
 
 @RestController
-@RequestMapping("/reserve_book_journey_details/")
+@RequestMapping("/reserve_book_journey_details")
 public class Journey_Details_Controller {
 
     @Autowired
