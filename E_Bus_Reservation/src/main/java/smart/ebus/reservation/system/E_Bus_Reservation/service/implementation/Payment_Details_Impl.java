@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Journey_Details_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Passenger_Journey_Details_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Promo_Code_Entity;
+import smart.ebus.reservation.system.E_Bus_Reservation.exception.Mail_ID_Not_Found_Exception;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Promo_Code_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Passenger_Journey_Details_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Promo_Code_Repository;
@@ -24,7 +25,7 @@ public class Payment_Details_Impl implements Payment_Details_Service {
 
     @Override
     public Passenger_Journey_Details_Entity total_amount(Promo_Code_Request promo_code_request) {
-        Passenger_Journey_Details_Entity passenger_journey_details_entity=passenger_journey_details_repository.findById(promo_code_request.getUser_email_id()).orElse(null);
+        Passenger_Journey_Details_Entity passenger_journey_details_entity=passenger_journey_details_repository.findById(promo_code_request.getUser_email_id()).orElseThrow(() -> new Mail_ID_Not_Found_Exception("Given E_mail ID have not booked ticket"));
         List<Journey_Details_Entity> journey_details_entityList=passenger_journey_details_entity.getJourney_detailEntities();
         int index=0;
         for(Journey_Details_Entity journey_details_entity:journey_details_entityList)

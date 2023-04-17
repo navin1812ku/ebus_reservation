@@ -28,7 +28,6 @@ public class CustomerDetails_SignUp_Impl implements Customer_Details_Service {
         //Login_Table login_table=login_table_repository.findById(sign_up_request.getUser_email_id()).isEmpty();
         if(login_table_repository.findById(sign_up_request.getUser_email_id()).isPresent())
         {
-            System.out.println("UserAlreadyExists");
             response.setResponse(Response_Enum.USER_ALREADY_EXISTS);
             return response;
         }

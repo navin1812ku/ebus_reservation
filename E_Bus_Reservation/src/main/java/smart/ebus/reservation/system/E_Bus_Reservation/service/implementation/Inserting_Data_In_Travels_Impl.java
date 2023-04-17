@@ -10,7 +10,7 @@ import smart.ebus.reservation.system.E_Bus_Reservation.repository.travels.*;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Adding_Data_To_Tables_Service;
 
 @Service
-public class Inserting_Data_In_Travels implements Adding_Data_To_Tables_Service {
+public class Inserting_Data_In_Travels_Impl implements Adding_Data_To_Tables_Service {
 
     @Autowired
     Air_India_Travels_Repository air_india_travels_repository;

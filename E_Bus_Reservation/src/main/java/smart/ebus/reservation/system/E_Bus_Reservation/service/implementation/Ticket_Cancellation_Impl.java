@@ -1,20 +1,15 @@
 package smart.ebus.reservation.system.E_Bus_Reservation.service.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.stereotype.Service;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Journey_Details_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Passenger_Journey_Details_Entity;
-import smart.ebus.reservation.system.E_Bus_Reservation.entity.Promo_Code_Entity;
+import smart.ebus.reservation.system.E_Bus_Reservation.exception.Mail_ID_Not_Found_Exception;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Ticket_Cancellation_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Passenger_Journey_Details_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Ticket_Cancellation_Service;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +21,7 @@ public class Ticket_Cancellation_Impl implements Ticket_Cancellation_Service {
 
     @Override
     public Passenger_Journey_Details_Entity cancelling_ticket(Ticket_Cancellation_Request ticket_cancellation_request) {
-        Passenger_Journey_Details_Entity passenger_journey_details_entity=passenger_journey_details_repository.findById(ticket_cancellation_request.getUser_email_id()).orElse(null);
+        Passenger_Journey_Details_Entity passenger_journey_details_entity=passenger_journey_details_repository.findById(ticket_cancellation_request.getUser_email_id()).orElseThrow(() -> new Mail_ID_Not_Found_Exception("Given E_mail ID have not booked ticket"));
         List<Journey_Details_Entity> journey_details_entityList=passenger_journey_details_entity.getJourney_detailEntities();
         int index=0;
         for(Journey_Details_Entity journey_details_entity:journey_details_entityList)
