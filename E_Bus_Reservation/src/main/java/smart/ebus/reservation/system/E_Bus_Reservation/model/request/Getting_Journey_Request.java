@@ -10,8 +10,6 @@ import java.util.Date;
 public class Getting_Journey_Request {
     @JsonProperty("user_mail_id")
     private String user_mail_id;
-    @JsonProperty("PNRNumber")
-    private String PNRNumber;
     @JsonProperty("name")
     private String name;
     @JsonProperty("age")

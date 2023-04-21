@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Journey_Details_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Passenger_Journey_Details_Entity;
+import smart.ebus.reservation.system.E_Bus_Reservation.enum_package.Response_Enum;
 import smart.ebus.reservation.system.E_Bus_Reservation.exception.Mail_ID_Not_Found_Exception;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Ticket_Cancellation_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Passenger_Journey_Details_Repository;
@@ -97,6 +98,8 @@ public class Ticket_Cancellation_Impl implements Ticket_Cancellation_Service {
 
                 passenger_journey_details_entity.setJourney_detailEntities(journey_details_entityList);
 
+                passenger_journey_details_entity.setResponse(Response_Enum.TICKET_CANCELLED.toString());
+
                 passenger_journey_details_repository.save(passenger_journey_details_entity);
 
                 break;
@@ -106,37 +109,3 @@ public class Ticket_Cancellation_Impl implements Ticket_Cancellation_Service {
         return passenger_journey_details_entity;
     }
 }
-
-/*
-if(promo_code_request.getPromo_code()!=null)
-                {
-                    Promo_Code_Entity promo_code_entity=promo_code_repository.findById(promo_code_request.getPromo_code().toUpperCase()).orElse(null);
-                    Double total_amount;/*=journey_details_entity.getTotal_amount()*(promo_code_entity.getDiscount()/100);
-
-                    total_amount=journey_details_entity.getTotal_amount()-(journey_details_entity.getTotal_amount()*(promo_code_entity.getDiscount()/100));
-                            /*((100-promo_code_entity.getDiscount())*journey_details_entity.getTotal_amount())/100;
-
-                            journey_details_entity.setTotal_amount(total_amount);
-                            journey_details_entity.setOffer_applied(true);
-                            journey_details_entity.setPromo_code_applied(promo_code_request.getPromo_code());
-                            journey_details_entity.setPayment_status("Paid");
-
-                            journey_details_entityList.set(index,journey_details_entity);
-
-                            passenger_journey_details_entity.setJourney_detailEntities(journey_details_entityList);
-
-                            passenger_journey_details_repository.save(passenger_journey_details_entity);
-                            break;
-                            }
-                            else
-                            {
-                            journey_details_entity.setPayment_status("Not Paid");
-
-                            journey_details_entityList.set(index,journey_details_entity);
-
-                            passenger_journey_details_entity.setJourney_detailEntities(journey_details_entityList);
-
-                            passenger_journey_details_repository.save(passenger_journey_details_entity);
-                            }
-                            break;
- */

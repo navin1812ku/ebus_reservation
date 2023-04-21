@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Journey_Details_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Passenger_Journey_Details_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Promo_Code_Entity;
+import smart.ebus.reservation.system.E_Bus_Reservation.enum_package.Response_Enum;
 import smart.ebus.reservation.system.E_Bus_Reservation.exception.Mail_ID_Not_Found_Exception;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Promo_Code_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Passenger_Journey_Details_Repository;
@@ -47,6 +48,8 @@ public class Payment_Details_Impl implements Payment_Details_Service {
 
                     journey_details_entityList.set(index,journey_details_entity);
 
+                    passenger_journey_details_entity.setResponse(Response_Enum.AMOUNT_PAID.toString());
+
                     passenger_journey_details_entity.setJourney_detailEntities(journey_details_entityList);
 
                     passenger_journey_details_repository.save(passenger_journey_details_entity);
@@ -57,6 +60,8 @@ public class Payment_Details_Impl implements Payment_Details_Service {
                     journey_details_entity.setPayment_status("Not Paid");
 
                     journey_details_entityList.set(index,journey_details_entity);
+
+                    passenger_journey_details_entity.setResponse(Response_Enum.AMOUNT_NOT_PAID.toString());
 
                     passenger_journey_details_entity.setJourney_detailEntities(journey_details_entityList);
 

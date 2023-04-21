@@ -3,6 +3,7 @@ package smart.ebus.reservation.system.E_Bus_Reservation.service.implementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Passenger_Journey_Details_Entity;
+import smart.ebus.reservation.system.E_Bus_Reservation.enum_package.Response_Enum;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Getting_Journey_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Journey_Details_Entity;
 import smart.ebus.reservation.system.E_Bus_Reservation.entity.Passenger_Details_Entity;
@@ -23,9 +24,11 @@ public class Passenger_Journey_Details_Impl implements Passenger_Journey_Details
         Passenger_Journey_Details_Entity passenger_journey_details_entity=new Passenger_Journey_Details_Entity();
         passenger_journey_details_entity.setUser_email_id(getting_journey_request.getUser_mail_id());
 
+        String PNR_Number=getID();
+
         Passenger_Details_Entity passenger_detailsEntity =new Passenger_Details_Entity();
         passenger_detailsEntity.setUser_email_id(getting_journey_request.getUser_mail_id());
-        passenger_detailsEntity.setPNR_number(getting_journey_request.getPNRNumber());
+        passenger_detailsEntity.setPNR_number(PNR_Number);
         passenger_detailsEntity.setPassenger_name(getting_journey_request.getName());
         passenger_detailsEntity.setPassenger_age(getting_journey_request.getAge());
         passenger_detailsEntity.setSeat_number(getting_journey_request.getSeat_number());
@@ -35,7 +38,7 @@ public class Passenger_Journey_Details_Impl implements Passenger_Journey_Details
 
         Journey_Details_Entity journey_detailsEntity = new Journey_Details_Entity();
         journey_detailsEntity.setUser_email_id(getting_journey_request.getUser_mail_id());
-        journey_detailsEntity.setPNR_number(getting_journey_request.getPNRNumber());
+        journey_detailsEntity.setPNR_number(PNR_Number);
         journey_detailsEntity.setPassenger_detailEntities(passenger_details_entities_list);
         journey_detailsEntity.setPhone_number(getting_journey_request.getPhone_number());
         journey_detailsEntity.setSource(getting_journey_request.getPick_up());
@@ -55,8 +58,23 @@ public class Passenger_Journey_Details_Impl implements Passenger_Journey_Details
         passenger_journey_details_entity.setJourney_detailEntities(journey_details_entities_list);
 
 
+        passenger_journey_details_entity.setResponse(Response_Enum.TRAVEL_SCHEDULED.toString());
+
+
         passenger_journey_details_repository.save(passenger_journey_details_entity);
 
         return passenger_journey_details_entity;
+    }
+
+    public static String getID() {
+        final long LIMIT = 10000000000L;
+        long last = 0;
+        // 10 digits.
+        long id = System.currentTimeMillis() % LIMIT;
+        if ( id <= last ) {
+            id = (last + 1) % LIMIT;
+        }
+        last = id;
+        return "SEBUS"+last;
     }
 }

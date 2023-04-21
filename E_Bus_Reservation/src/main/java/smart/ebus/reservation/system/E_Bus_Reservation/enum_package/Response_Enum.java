@@ -8,7 +8,11 @@ public enum Response_Enum {
     SIGN_UP_SUCCESSFUL("User Details Registered In DB Successsfully,Try To Login Now"),
     USER_ALREADY_EXISTS("Email Id Already Exists Try With Different One"),
     LOGOUT_SUCCESSFUL("Logged Out Successfully..."),
-    BUS_DETAILS_UPDATED_SUCCESSFUL("Bus details are stored in DB successfully");
+    BUS_DETAILS_UPDATED_SUCCESSFUL("Bus details are stored in DB successfully"),
+    TRAVEL_SCHEDULED("Travel scheduled successfully"),
+    AMOUNT_PAID("Payment done successfully"),
+    AMOUNT_NOT_PAID("Payment not done"),
+    TICKET_CANCELLED("Ticket cancelled successfully");
     Response_Enum(String s) {
 
     }
