@@ -11,7 +11,6 @@ import smart.ebus.reservation.system.E_Bus_Reservation.model.response.Response;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Login_Service;
 
 
-@CrossOrigin(origins = {"http://localhost:3000"})
 @RestController
 @RequestMapping("/login_details")
 public class Login_Controller {
