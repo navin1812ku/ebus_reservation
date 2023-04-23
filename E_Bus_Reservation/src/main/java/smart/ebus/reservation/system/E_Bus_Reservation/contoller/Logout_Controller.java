@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Login_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.request.Logout_Request;
 import smart.ebus.reservation.system.E_Bus_Reservation.model.response.Response;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Logout_service;

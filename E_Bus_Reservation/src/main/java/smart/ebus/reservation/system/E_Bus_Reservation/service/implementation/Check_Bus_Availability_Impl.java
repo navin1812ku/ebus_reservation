@@ -47,7 +47,7 @@ public class Check_Bus_Availability_Impl implements Check_Bus_Availability_Servi
     @Override
     public List<Available_Bus_Response> check_bus_availability(Available_Bus_Request available_bus_request) {
         List<Available_Bus_Response> available_bus_responses_list=new ArrayList<>();
-        Air_India_Travels air_india_travels=air_india_travels_repository.findBySourceAndDestinationAndTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
+        /*Air_India_Travels air_india_travels=air_india_travels_repository.findBySourceAndDestinationAndTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
         available_bus_responses_list.add(create_object_of_available_buses(air_india_travels.getBus_id(),air_india_travels.getSeat_available(),
                 air_india_travels.getAmenities(), air_india_travels.getStart_time(),air_india_travels.getEnd_time(),air_india_travels.getBus_fare()));
 
@@ -58,12 +58,12 @@ public class Check_Bus_Availability_Impl implements Check_Bus_Availability_Servi
         Essar_Travels essar_travels=essar_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
         available_bus_responses_list.add(create_object_of_available_buses(essar_travels.getBus_id(),essar_travels.getSeat_available(),
                 essar_travels.getAmenities(),essar_travels.getStart_time(),essar_travels.getEnd_time(),essar_travels.getBus_fare()));
-
+*/
         Ganapathy_Travels ganapathy_travels=ganapathy_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
         available_bus_responses_list.add(create_object_of_available_buses(ganapathy_travels.getBus_id(),ganapathy_travels.getSeat_available(),
                 ganapathy_travels.getAmenities(),ganapathy_travels.getStart_time(),ganapathy_travels.getEnd_time(),ganapathy_travels.getBus_fare()));
 
-        Krish_Travels krish_travels=krish_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
+       /* Krish_Travels krish_travels=krish_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
         available_bus_responses_list.add(create_object_of_available_buses(krish_travels.getBus_id(),krish_travels.getSeat_available(),
                 krish_travels.getAmenities(),krish_travels.getStart_time(),krish_travels.getEnd_time(),krish_travels.getBus_fare()));
 
@@ -86,7 +86,7 @@ public class Check_Bus_Availability_Impl implements Check_Bus_Availability_Servi
         Sri_Krishna_Travels sri_krishna_travels=sri_krishna_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
         available_bus_responses_list.add(create_object_of_available_buses(sri_krishna_travels.getBus_id(),sri_krishna_travels.getSeat_available(),
                 sri_krishna_travels.getAmenities(),sri_krishna_travels.getStart_time(),sri_krishna_travels.getEnd_time(),sri_krishna_travels.getBus_fare()));
-
+*/
         return available_bus_responses_list;
     }
 
@@ -104,9 +104,4 @@ public class Check_Bus_Availability_Impl implements Check_Bus_Availability_Servi
         return available_bus_response;
     }
 }
-//available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTravel_date()
 
-
-/*create_object_of_available_buses(ganapathy_travels.getBus_id(),ganapathy_travels.getSeat_available(),
-                ganapathy_travels.getAmenities(),ganapathy_travels.getStart_time(),ganapathy_travels.getEnd_time(),ganapathy_travels.getBus_fare())
-*/

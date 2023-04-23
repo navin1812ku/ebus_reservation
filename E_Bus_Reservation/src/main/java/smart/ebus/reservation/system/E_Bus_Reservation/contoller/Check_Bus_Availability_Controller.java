@@ -21,7 +21,7 @@ public class Check_Bus_Availability_Controller {
     @Autowired
     Check_Bus_Availability_Service check_bus_availability_service;
 
-    @GetMapping("/available_buses/")
+    @GetMapping("available_buses/")
     public ResponseEntity<List<Available_Bus_Response>> check_available_buses(@RequestBody Available_Bus_Request available_bus_request)
     {
         return new ResponseEntity<List<Available_Bus_Response>>(check_bus_availability_service.check_bus_availability(available_bus_request), HttpStatus.ACCEPTED);

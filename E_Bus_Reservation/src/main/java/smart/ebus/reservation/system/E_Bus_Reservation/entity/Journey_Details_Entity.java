@@ -50,7 +50,7 @@ public class Journey_Details_Entity {
     private String refund_status;
     @Column(nullable = true)
     private String cancellation_date;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String cancellation_time;
     @Column(nullable = true)
     private String reason_for_cancellation;

@@ -19,61 +19,61 @@ public class Inserting_Data_To_Entities_Controller {
     @Autowired
     Adding_Data_To_Tables_Service adding_data_to_tables_service;
 
-    @PostMapping("/air_india_travels/")
+    @PostMapping("air_india_travels/")
     public ResponseEntity<Response> air_india_travels(@RequestBody Adding_Data_To_Travels_Request adding_data_to_travels_request)
     {
         return new ResponseEntity<Response>(adding_data_to_tables_service.air_india_travels_details(adding_data_to_travels_request), HttpStatus.ACCEPTED);
     }
 
-    @PostMapping("/city_travels/")
+    @PostMapping("city_travels/")
     public ResponseEntity<Response> city_travels(@RequestBody Adding_Data_To_Travels_Request adding_data_to_travels_request)
     {
         return new ResponseEntity<Response>(adding_data_to_tables_service.city_travels_details(adding_data_to_travels_request), HttpStatus.ACCEPTED);
     }
 
-    @PostMapping("/essar_travels/")
+    @PostMapping("essar_travels/")
     public ResponseEntity<Response> essar_travels(@RequestBody Adding_Data_To_Travels_Request adding_data_to_travels_request)
     {
         return new ResponseEntity<Response>(adding_data_to_tables_service.essar_travels_details(adding_data_to_travels_request), HttpStatus.ACCEPTED);
     }
 
-    @PostMapping("/ganapathy_travels/")
+    @PostMapping("ganapathy_travels/")
     public ResponseEntity<Response> ganapathy_travels(@RequestBody Adding_Data_To_Travels_Request adding_data_to_travels_request)
     {
         return new ResponseEntity<Response>(adding_data_to_tables_service.ganapathy_travels_details(adding_data_to_travels_request), HttpStatus.ACCEPTED);
     }
 
-    @PostMapping("/krish_travels/")
+    @PostMapping("krish_travels/")
     public ResponseEntity<Response> krish_travels(@RequestBody Adding_Data_To_Travels_Request adding_data_to_travels_request)
     {
         return new ResponseEntity<Response>(adding_data_to_tables_service.krish_travels_details(adding_data_to_travels_request), HttpStatus.ACCEPTED);
     }
 
-    @PostMapping("/mayurra_travels/")
+    @PostMapping("mayurra_travels/")
     public ResponseEntity<Response> mayurra_travels(@RequestBody Adding_Data_To_Travels_Request adding_data_to_travels_request)
     {
         return new ResponseEntity<Response>(adding_data_to_tables_service.mayurra_travels_details(adding_data_to_travels_request), HttpStatus.ACCEPTED);
     }
 
-    @PostMapping("/national_travels/")
+    @PostMapping("national_travels/")
     public ResponseEntity<Response> national_travels(@RequestBody Adding_Data_To_Travels_Request adding_data_to_travels_request)
     {
         return new ResponseEntity<Response>(adding_data_to_tables_service.national_travels_details(adding_data_to_travels_request), HttpStatus.ACCEPTED);
     }
 
-    @PostMapping("/no_1_air_travels/")
+    @PostMapping("no_1_air_travels/")
     public ResponseEntity<Response> no_1_air_travels(@RequestBody Adding_Data_To_Travels_Request adding_data_to_travels_request)
     {
         return new ResponseEntity<Response>(adding_data_to_tables_service.no_1_air_travels_details(adding_data_to_travels_request), HttpStatus.ACCEPTED);
     }
 
-    @PostMapping("/orange_tour_travels/")
+    @PostMapping("orange_tour_travels/")
     public ResponseEntity<Response> orange_tour_travels(@RequestBody Adding_Data_To_Travels_Request adding_data_to_travels_request)
     {
         return new ResponseEntity<Response>(adding_data_to_tables_service.orange_tour_travels_details(adding_data_to_travels_request), HttpStatus.ACCEPTED);
     }
 
-    @PostMapping("/sri_krishna_travels/")
+    @PostMapping("sri_krishna_travels/")
     public ResponseEntity<Response> sri_krishna_travels(@RequestBody Adding_Data_To_Travels_Request adding_data_to_travels_request)
     {
         return new ResponseEntity<Response>(adding_data_to_tables_service.sri_krishna_travels_travels(adding_data_to_travels_request), HttpStatus.ACCEPTED);

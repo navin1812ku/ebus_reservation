@@ -23,7 +23,7 @@ public class Ticket_Cancellation_Controller {
     @Autowired
     Ticket_Cancellation_Service ticket_cancellation_service;
 
-    @GetMapping("/cancelling/")
+    @GetMapping("cancelling/")
     public ResponseEntity<Passenger_Journey_Details_Entity> check_available_buses(@RequestBody Ticket_Cancellation_Request ticket_cancellation_request)
     {
         return new ResponseEntity<Passenger_Journey_Details_Entity>(ticket_cancellation_service.cancelling_ticket(ticket_cancellation_request), HttpStatus.ACCEPTED);
