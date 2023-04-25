@@ -13,6 +13,7 @@ import smart.ebus.reservation.system.E_Bus_Reservation.repository.Passenger_Jour
 import smart.ebus.reservation.system.E_Bus_Reservation.repository.Promo_Code_Repository;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Payment_Details_Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -29,6 +30,7 @@ public class Payment_Details_Impl implements Payment_Details_Service {
         Passenger_Journey_Details_Entity passenger_journey_details_entity=passenger_journey_details_repository.findById(promo_code_request.getUser_email_id()).orElseThrow(() -> new Mail_ID_Not_Found_Exception("Given E_mail ID have not booked ticket"));
         List<Journey_Details_Entity> journey_details_entityList=passenger_journey_details_entity.getJourney_detailEntities();
         int index=0;
+        LocalDate current_date = LocalDate.now();
         for(Journey_Details_Entity journey_details_entity:journey_details_entityList)
         {
             if(journey_details_entity.getPNR_number().equals(promo_code_request.getPNR_Number()))
@@ -37,9 +39,14 @@ public class Payment_Details_Impl implements Payment_Details_Service {
                 {
                     Promo_Code_Entity promo_code_entity=promo_code_repository.findById(promo_code_request.getPromo_code().toUpperCase()).orElse(null);
                     Double total_amount;/*=journey_details_entity.getTotal_amount()*(promo_code_entity.getDiscount()/100);*/
-
-                    total_amount=(journey_details_entity.getTotal_amount()*promo_code_entity.getDiscount())/100;
-                            /*((100-promo_code_entity.getDiscount())*journey_details_entity.getTotal_amount())/100;*/
+                    if(promo_code_entity!=null && promo_code_entity.getValid_date().isBefore(current_date)) {
+                        total_amount = (journey_details_entity.getTotal_amount() * promo_code_entity.getDiscount()) / 100;
+                        /*((100-promo_code_entity.getDiscount())*journey_details_entity.getTotal_amount())/100;*/
+                    }
+                    else
+                    {
+                        total_amount=journey_details_entity.getTotal_amount();
+                    }
 
                     journey_details_entity.setTotal_amount(total_amount);
                     journey_details_entity.setOffer_applied(true);
