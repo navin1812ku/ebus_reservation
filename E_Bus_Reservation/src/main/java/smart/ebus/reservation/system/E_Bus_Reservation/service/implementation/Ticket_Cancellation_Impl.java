@@ -36,7 +36,7 @@ public class Ticket_Cancellation_Impl implements Ticket_Cancellation_Service {
                 String cDate=sd1.format(c_date);
                 int current_date=Integer.parseInt(cDate.substring(cDate.length()-2,cDate.length()));
 
-                String b_date=journey_details_entity.getTravel_date().toString();
+                String b_date=journey_details_entity.getTraveldate().toString();
                 int bus_date=Integer.parseInt(b_date.substring(b_date.length()-2,b_date.length()));
 
                 int date=current_date > bus_date ? current_date-bus_date : bus_date-current_date;

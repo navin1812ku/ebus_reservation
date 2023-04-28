@@ -25,7 +25,7 @@ public class Journey_Details_Entity {
     private String destination;
     @Column(nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.ANY, pattern = "yyyy-MM-dd")
-    private LocalDate travel_date;
+    private LocalDate traveldate;
     @Column(nullable = false)
     private String bus_name;
     @Column(nullable = false)

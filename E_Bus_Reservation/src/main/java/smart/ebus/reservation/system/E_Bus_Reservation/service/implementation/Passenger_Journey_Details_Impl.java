@@ -46,7 +46,7 @@ public class Passenger_Journey_Details_Impl implements Passenger_Journey_Details
         journey_detailsEntity.setBus_name(getting_journey_request.getBus_id());
         journey_detailsEntity.setStart_time(getting_journey_request.getStart_time());
         journey_detailsEntity.setEnd_time(getting_journey_request.getEnd_time());
-        journey_detailsEntity.setTravel_date(getting_journey_request.getTravel_date());
+        journey_detailsEntity.setTraveldate(getting_journey_request.getTravel_date());
         journey_detailsEntity.setNumber_of_seats(getting_journey_request.getNumber_of_seats());
         journey_detailsEntity.setTotal_amount(getting_journey_request.getBus_fare_per_person());
         journey_detailsEntity.setOffer_applied(false);

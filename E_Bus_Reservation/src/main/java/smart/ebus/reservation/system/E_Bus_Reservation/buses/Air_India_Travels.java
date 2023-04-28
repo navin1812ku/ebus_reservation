@@ -37,6 +37,7 @@ public class Air_India_Travels {
     public String start_time;
     @Column(nullable = false)
     public String end_time;
+    @Column(nullable = true)
     @ElementCollection
     private Map<String,Integer> hotel_booked_seat;
     //string => PNRnumber ,integer => number of seat

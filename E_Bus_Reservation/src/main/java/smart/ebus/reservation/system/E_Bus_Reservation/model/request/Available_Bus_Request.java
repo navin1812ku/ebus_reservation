@@ -10,6 +10,6 @@ import java.util.Date;
 public class Available_Bus_Request {
     private String source;
     private String destination;
-    @JsonProperty("travel_date")
+    @JsonProperty("traveldate")
     private LocalDate traveldate;
 }
