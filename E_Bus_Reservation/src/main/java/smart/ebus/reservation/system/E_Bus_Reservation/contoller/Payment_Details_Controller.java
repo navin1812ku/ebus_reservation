@@ -28,7 +28,7 @@ public class Payment_Details_Controller {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",description = "Final ticket amount will be calculated",
                     content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Login_Request.class))}),
+                            schema = @Schema(implementation = Promo_Code_Request.class))}),
             @ApiResponse(responseCode = "404",description = "Promo code Not Found",
                     content = @Content)
     })

@@ -32,7 +32,7 @@ public class Journey_Details_Controller {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",description = "Getting passenger details",
                     content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Login_Request.class))}),
+                            schema = @Schema(implementation = Getting_Journey_Request.class))}),
             @ApiResponse(responseCode = "404",description = "User ID Not Found",
                     content = @Content)
     })

@@ -30,7 +30,7 @@ public class Customer_Details_SignUp_Controller {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",description = "Creating account",
                     content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Login_Request.class))}),
+                            schema = @Schema(implementation = Sign_Up_Request.class))}),
             @ApiResponse(responseCode = "404",description = "User Not Found",
                     content = @Content)
     })

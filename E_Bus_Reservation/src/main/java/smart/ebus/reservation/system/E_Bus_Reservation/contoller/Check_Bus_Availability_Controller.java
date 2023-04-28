@@ -32,7 +32,7 @@ public class Check_Bus_Availability_Controller {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",description = "Available buses",
                     content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Login_Request.class))}),
+                            schema = @Schema(implementation = Available_Bus_Request.class))}),
             @ApiResponse(responseCode = "404",description = "User ID Not Found",
                     content = @Content)
     })

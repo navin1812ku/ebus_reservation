@@ -29,7 +29,7 @@ public class Logout_Controller {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",description = "Now you can logout",
                     content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Login_Request.class))}),
+                            schema = @Schema(implementation = Logout_Request.class))}),
             @ApiResponse(responseCode = "404",description = "User can't logout",
                     content = @Content)
     })

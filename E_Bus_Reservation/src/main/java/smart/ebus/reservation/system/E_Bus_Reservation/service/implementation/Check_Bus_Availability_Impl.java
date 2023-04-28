@@ -59,7 +59,7 @@ public class Check_Bus_Availability_Impl implements Check_Bus_Availability_Servi
         available_bus_responses_list.add(create_object_of_available_buses(essar_travels.getBus_id(),essar_travels.getSeat_available(),
                 essar_travels.getAmenities(),essar_travels.getStart_time(),essar_travels.getEnd_time(),essar_travels.getBus_fare()));
 
-        Ganapathy_Travels ganapathy_travels=ganapathy_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
+      /*  Ganapathy_Travels ganapathy_travels=ganapathy_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
         available_bus_responses_list.add(create_object_of_available_buses(ganapathy_travels.getBus_id(),ganapathy_travels.getSeat_available(),
                 ganapathy_travels.getAmenities(),ganapathy_travels.getStart_time(),ganapathy_travels.getEnd_time(),ganapathy_travels.getBus_fare()));
 

@@ -35,7 +35,7 @@ public class Ticket_Cancellation_Controller {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",description = "Cancelling the ticket and getting the refundable amount",
                     content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Login_Request.class))}),
+                            schema = @Schema(implementation = Ticket_Cancellation_Request.class))}),
             @ApiResponse(responseCode = "404",description = "User ID Not Found",
                     content = @Content)
     })
