@@ -9,7 +9,9 @@ import smart.ebus.reservation.system.E_Bus_Reservation.repository.travels.*;
 import smart.ebus.reservation.system.E_Bus_Reservation.service.Check_Bus_Availability_Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class Check_Bus_Availability_Impl implements Check_Bus_Availability_Service {
@@ -45,49 +47,123 @@ public class Check_Bus_Availability_Impl implements Check_Bus_Availability_Servi
     Sri_Krishna_Travels_Repository sri_krishna_travels_repository;
 
     @Override
-    public List<Available_Bus_Response> check_bus_availability(Available_Bus_Request available_bus_request) {
-        List<Available_Bus_Response> available_bus_responses_list=new ArrayList<>();
+    public Map<String,Available_Bus_Response> check_bus_availability(Available_Bus_Request available_bus_request) {
+        Map<String,Available_Bus_Response> availableBusResponseMap=new HashMap<>();
         Air_India_Travels air_india_travels=air_india_travels_repository.findBySourceAndDestinationAndTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
-        available_bus_responses_list.add(create_object_of_available_buses(air_india_travels.getBus_id(),air_india_travels.getSeat_available(),
-                air_india_travels.getAmenities(), air_india_travels.getStart_time(),air_india_travels.getEnd_time(),air_india_travels.getBus_fare()));
+        if(air_india_travels==null)
+        {
 
-       /* City_Travels city_travels=city_travels_repository.findBySourceAndDestinationAndTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
-        available_bus_responses_list.add(create_object_of_available_buses(city_travels.getBus_id(),city_travels.getSeat_available(),
-                city_travels.getAmenities(),city_travels.getStart_time(),city_travels.getEnd_time(),city_travels.getBus_fare()));
+        }
+        else {
+            String bus_name="Air India Travels";
+            Available_Bus_Response response=create_object_of_available_buses(air_india_travels.getBus_id(), air_india_travels.getSeat_available(),
+                    air_india_travels.getAmenities(), air_india_travels.getStart_time(), air_india_travels.getEnd_time(), air_india_travels.getBus_fare());
+            availableBusResponseMap.put(bus_name,response);
+        }
+        City_Travels city_travels=city_travels_repository.findBySourceAndDestinationAndTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
+        if(city_travels==null)
+        {
+
+        }
+        else
+        {
+            String bus_name="City Travels";
+            Available_Bus_Response response=create_object_of_available_buses(city_travels.getBus_id(),city_travels.getSeat_available(),
+                    city_travels.getAmenities(),city_travels.getStart_time(),city_travels.getEnd_time(),city_travels.getBus_fare());
+            availableBusResponseMap.put(bus_name,response);
+        }
 
         Essar_Travels essar_travels=essar_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
-        available_bus_responses_list.add(create_object_of_available_buses(essar_travels.getBus_id(),essar_travels.getSeat_available(),
-                essar_travels.getAmenities(),essar_travels.getStart_time(),essar_travels.getEnd_time(),essar_travels.getBus_fare()));
+        if(essar_travels==null)
+        {
 
-      /*  Ganapathy_Travels ganapathy_travels=ganapathy_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
-        available_bus_responses_list.add(create_object_of_available_buses(ganapathy_travels.getBus_id(),ganapathy_travels.getSeat_available(),
-                ganapathy_travels.getAmenities(),ganapathy_travels.getStart_time(),ganapathy_travels.getEnd_time(),ganapathy_travels.getBus_fare()));
+        }
+        else {
+            String bus_name="Essar Travels";
+            Available_Bus_Response response=create_object_of_available_buses(essar_travels.getBus_id(), essar_travels.getSeat_available(),
+                    essar_travels.getAmenities(), essar_travels.getStart_time(), essar_travels.getEnd_time(), essar_travels.getBus_fare());
+            availableBusResponseMap.put(bus_name,response);
+        }
 
-       Krish_Travels krish_travels=krish_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
-        available_bus_responses_list.add(create_object_of_available_buses(krish_travels.getBus_id(),krish_travels.getSeat_available(),
-                krish_travels.getAmenities(),krish_travels.getStart_time(),krish_travels.getEnd_time(),krish_travels.getBus_fare()));
+        Ganapathy_Travels ganapathy_travels=ganapathy_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
+        if(ganapathy_travels==null)
+        {
+
+        }
+        else {
+            String bus_name="Ganapathy Travels";
+            Available_Bus_Response response=create_object_of_available_buses(ganapathy_travels.getBus_id(), ganapathy_travels.getSeat_available(),
+                    ganapathy_travels.getAmenities(), ganapathy_travels.getStart_time(), ganapathy_travels.getEnd_time(), ganapathy_travels.getBus_fare());
+            availableBusResponseMap.put(bus_name,response);
+        }
+
+        Krish_Travels krish_travels=krish_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
+        if(krish_travels==null){
+
+        }
+        else {
+            String bus_name="Krish Travels";
+            Available_Bus_Response response=create_object_of_available_buses(krish_travels.getBus_id(), krish_travels.getSeat_available(),
+                    krish_travels.getAmenities(), krish_travels.getStart_time(), krish_travels.getEnd_time(), krish_travels.getBus_fare());
+            availableBusResponseMap.put(bus_name,response);
+        }
 
         Mayurra_Travels mayurra_travels=mayurra_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
-        available_bus_responses_list.add(create_object_of_available_buses(mayurra_travels.getBus_id(),mayurra_travels.getSeat_available(),
-                mayurra_travels.getAmenities(),mayurra_travels.getStart_time(),mayurra_travels.getEnd_time(),mayurra_travels.getBus_fare()));
+        if(mayurra_travels==null){
+
+        }
+        else {
+            String bus_name = "Mayurra Travels";
+            Available_Bus_Response response = create_object_of_available_buses(mayurra_travels.getBus_id(), mayurra_travels.getSeat_available(),
+                    mayurra_travels.getAmenities(), mayurra_travels.getStart_time(), mayurra_travels.getEnd_time(), mayurra_travels.getBus_fare());
+            availableBusResponseMap.put(bus_name,response);
+        }
 
         National_Travels national_travels=national_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
-        available_bus_responses_list.add(create_object_of_available_buses(national_travels.getBus_id(),national_travels.getSeat_available(),
-                national_travels.getAmenities(),national_travels.getStart_time(),national_travels.getEnd_time(),national_travels.getBus_fare()));
+        if(national_travels==null){
+
+        }
+        else {
+            String bus_name = "National Travels";
+            Available_Bus_Response response = create_object_of_available_buses(national_travels.getBus_id(), national_travels.getSeat_available(),
+                    national_travels.getAmenities(), national_travels.getStart_time(), national_travels.getEnd_time(), national_travels.getBus_fare());
+            availableBusResponseMap.put(bus_name,response);
+        }
 
         No_1_Air_Travels no_1_air_travels=no_1_air_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
-        available_bus_responses_list.add(create_object_of_available_buses(no_1_air_travels.getBus_id(),no_1_air_travels.getSeat_available(),
-                no_1_air_travels.getAmenities(),no_1_air_travels.getStart_time(),no_1_air_travels.getEnd_time(),no_1_air_travels.getBus_fare()));
+        if(no_1_air_travels==null){
+
+        }
+        else {
+            String bus_name = "No1 Air Travels";
+            Available_Bus_Response response = create_object_of_available_buses(no_1_air_travels.getBus_id(), no_1_air_travels.getSeat_available(),
+                    no_1_air_travels.getAmenities(), no_1_air_travels.getStart_time(), no_1_air_travels.getEnd_time(), no_1_air_travels.getBus_fare());
+            availableBusResponseMap.put(bus_name,response);
+        }
 
         Orange_Tour_Travels orange_tour_travels=orange_tour_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
-        available_bus_responses_list.add(create_object_of_available_buses(orange_tour_travels.getBus_id(),orange_tour_travels.getSeat_available(),
-                orange_tour_travels.getAmenities(),orange_tour_travels.getStart_time(),orange_tour_travels.getEnd_time(),orange_tour_travels.getBus_fare()));
+        if(orange_tour_travels==null){
+
+        }
+        else {
+            String bus_name="Orange Travels";
+            Available_Bus_Response response=create_object_of_available_buses(orange_tour_travels.getBus_id(),orange_tour_travels.getSeat_available(),
+                orange_tour_travels.getAmenities(),orange_tour_travels.getStart_time(),orange_tour_travels.getEnd_time(),orange_tour_travels.getBus_fare());
+            availableBusResponseMap.put(bus_name,response);
+        }
 
         Sri_Krishna_Travels sri_krishna_travels=sri_krishna_travels_repository.findBySourceAndDestinationOrTraveldate(available_bus_request.getSource(),available_bus_request.getDestination(),available_bus_request.getTraveldate());
-        available_bus_responses_list.add(create_object_of_available_buses(sri_krishna_travels.getBus_id(),sri_krishna_travels.getSeat_available(),
-                sri_krishna_travels.getAmenities(),sri_krishna_travels.getStart_time(),sri_krishna_travels.getEnd_time(),sri_krishna_travels.getBus_fare()));
-*/
-        return available_bus_responses_list;
+        if(sri_krishna_travels==null){
+
+        }
+        else {
+            String bus_name = "Sri Krishna Travels";
+            Available_Bus_Response response = create_object_of_available_buses(sri_krishna_travels.getBus_id(), sri_krishna_travels.getSeat_available(),
+                    sri_krishna_travels.getAmenities(), sri_krishna_travels.getStart_time(), sri_krishna_travels.getEnd_time(), sri_krishna_travels.getBus_fare());
+            availableBusResponseMap.put(bus_name,response);
+        }
+
+        return availableBusResponseMap;
     }
 
     public  Available_Bus_Response create_object_of_available_buses(String bus_id,List<String> seat_available,

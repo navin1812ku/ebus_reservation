@@ -6,5 +6,5 @@ import smart.ebus.reservation.system.E_Bus_Reservation.enum_package.Response_Enu
 
 @Data
 public class Response {
-    private Response_Enum response;
+    private String response;
 }

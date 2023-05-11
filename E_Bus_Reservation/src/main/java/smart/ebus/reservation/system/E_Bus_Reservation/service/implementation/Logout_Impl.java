@@ -22,7 +22,8 @@ public class Logout_Impl implements Logout_service {
     @Override
     public Response user_logout(Logout_Request logout_request) {
         Response response=new Response();
-        Login_Table_Entity login_table_entity=login_table_repository.findById(logout_request.getUser_email_id()).orElseThrow(() -> new Mail_ID_Not_Found_Exception("Given e_mail ID not found"));
+        Login_Table_Entity login_table_entity=login_table_repository.findById(logout_request.getUser_email_id())
+                .orElseThrow(() -> new Mail_ID_Not_Found_Exception("Given e_mail ID not found"));
 
         Date date = new Date();
 
